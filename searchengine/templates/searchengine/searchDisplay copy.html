@@ -1,0 +1,26 @@
+{% extends 'searchengine/base/base.html' %}
+
+{% load static %}
+
+{% block title %}Investigator!{% endblock %}
+
+{% block content %}
+    <header id="searchbar">
+        <a href=""></a><h2><input type="text" id="searchterm" name="searchedTerm" placeholder="Enter your search term"></h2>
+    </header>
+        {% for dictionary in content %}
+            <div class="block">
+                <div class="searchEngine">
+                    <h3> {{ dictionary.name }} </h3>
+                </div>
+                <div class="searchResults">
+                    {% for element in dictionary.combination %}
+                    <a href="{{ element.1 }}" target="_blank">
+                        <article>{{ element.0 }}</article>
+                    </a>
+                    <br>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+{% endblock %}

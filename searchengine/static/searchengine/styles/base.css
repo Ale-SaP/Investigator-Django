@@ -1,0 +1,117 @@
+body {
+    background: #000000;
+}
+
+main {
+    
+    background: #000000;
+    background: -webkit-linear-gradient(to bottom left, #000000 13%, #020EB8 54%, #FFFFFF 100%);
+    background: -moz-linear-gradient(to bottom left, #000000 13%, #020EB8 54%, #FFFFFF 100%);
+    background: linear-gradient(to bottom left, #000000 13%, #020EB8 54%, #FFFFFF 100%);
+    background-repeat: no-repeat;
+} 
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.investigator-image img{
+    width: 30%;
+    height: auto;
+}
+
+/* The Searchbar */
+#search-term {
+    font: normal 125% Arial, "Times New Roman", Times, serif;
+    font-weight: normal;
+    border: 1px solid #848484;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	outline:0;
+	height:25px;
+    padding: 25px 100px 25px 100px;
+    text-align: center;
+  
+}
+
+
+
+/* ----
+    Container makes a grid
+    The classes with the names of the websites are each space of the grid
+---- */
+
+.container {  
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 3fr 3fr 0fr;
+    gap: 10px 10px;
+    width: 75%;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "Scholar ResearchGate Bielefeld-Academic-Search-Engine"
+      "Pubmed Elsevier Libgen"
+      ". . .";
+}
+  
+.Scholar { grid-area: Scholar; }
+  
+.ResearchGate { grid-area: ResearchGate; }
+  
+.Pubmed { grid-area: Pubmed; }
+  
+.Elsevier { grid-area: Elsevier; }
+  
+.Libgen { grid-area: Libgen; }
+  
+.Bielefeld-Academic-Search-Engine { grid-area: Bielefeld-Academic-Search-Engine; }
+  
+
+/* ----
+    .block has the real content of the page, each square of the grid is defined generically, oposite to the previous classes
+    .searchEngine is the name of the search engine used
+    .searchResults are the search's results
+    .block a elements define interactions with the hyperlinks
+---- */
+
+
+.block {
+    /* code no longer in use, kept just in case
+    margin: 4%;
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    width: 22.5%;
+    */
+    min-height: 300px;
+    max-height: 600px;
+    overflow: auto;
+    border: none;
+    font: normal 16px/1 arial, Geneva, sans-serif;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    background: #36868f;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
+}
+
+.searchEngine {
+    text-align: center;
+    font: bolder 25px/1 arial, Geneva, sans-serif;
+    color: rgb(255, 255, 255);
+    background: #000000 ;
+    padding: 4% 4% 4% 4%;
+}
+
+.searchResults {
+    padding: 4%;
+}
+
+.block a:link { text-decoration: none }
+.block a:link {color:rgb(255, 255, 255);}
+.block a:visited {color: #acacac;}
+.block a:hover {text-decoration: none; color: #a98aff; font-weight:normal;}

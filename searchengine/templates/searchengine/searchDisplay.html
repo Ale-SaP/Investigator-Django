@@ -1,0 +1,62 @@
+{% extends 'searchengine/base/base.html' %}
+
+{% load static %}
+
+{% block title %}Investigator!{% endblock %}
+
+{% block content %}
+
+{% if content.0 == None %}
+    <style>
+    .full-page-span {
+    margin-top: 5%;
+    height: 100vh; } 
+
+    .investigator-image img{
+    margin-bottom: 7%; }
+    </style>
+
+{% else %}
+
+    <style> .full-page-span {
+    margin-top: 5%;
+    height: 50vh; }
+    
+    .investigator-image img{
+    margin-bottom: 3%; }
+    </style>
+
+{% endif %}
+
+<div class="full-page-span">
+    <div class="center investigator-image">
+        <img src="{% static '/searchengine/images/investigatorWhite.png' %}" alt="Investigator" href="">
+    </div>
+    <br>
+    <div class="center">
+        <form method="POST" action="search" class="center">
+            {% csrf_token %}
+            <input id="search-term" type="text" name="search" placeholder="Investigate here!">
+        </form>
+    </div>
+</div>
+    <div class="center">
+    <div class="container">
+        {% for dictionary in content %}
+        <div class="block {{ dictionary.name }}">
+                <div class="searchEngine">
+                    <h3> {{ dictionary.name }} </h3>
+                </div>
+                <div class="searchResults">
+                    {% for element in dictionary.combination %}
+                        <a href="{{ element.1 }}" target="_blank">
+                            <article>{{ element.0 }}</article>
+                        </a>
+                        <br>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    </div>
+{% endblock %}
